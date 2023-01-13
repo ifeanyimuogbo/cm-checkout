@@ -1,9 +1,9 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router";
 import { lazy, Suspense } from "react";
 import { StyleProvider } from "./theme";
+import { PageLoader } from "./components/shared/page-loader/page-loader";
 
 const LazyloadedShoppingCart = lazy(() =>
   import("../src/pages/cart").then((module) => ({
@@ -14,7 +14,7 @@ const LazyloadedShoppingCart = lazy(() =>
 function App() {
   return (
     <StyleProvider>
-      <Suspense fallback={<p>Loading ...</p>}>
+      <Suspense fallback={<PageLoader />}>
         <BrowserRouter>
           <Routes>
             <Route path="/cart" element={<LazyloadedShoppingCart />} />

@@ -1,3 +1,4 @@
+import { up } from "styled-breakpoints";
 import { createGlobalStyle } from "styled-components";
 import { normalize } from "styled-normalize";
 import { getColorFromTheme } from "../utils/style-utils";
@@ -15,6 +16,9 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     text-rendering: geometricPrecision;
     height: 100%;
+    ${up("sm")} {
+      background: #eceded;
+    }
   }
 
   html {

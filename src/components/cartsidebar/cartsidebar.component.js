@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { StoreContext } from "../../pages/cart/cart.page";
+import { calcTotalCostInCart } from "../../utils/cart-utils";
 import { RatedItem } from "../rateditem/rateditem.component";
 import { Button } from "../shared/button/button";
 import { Checkbox } from "../shared/checkbox/checkbox";
@@ -25,13 +28,15 @@ const ratedItems = [
   },
 ];
 
-export const CartSideBar = ({}) => {
+export const CartSideBar = () => {
+  const { cart } = useContext(StoreContext);
   return (
     <Wrapper>
       <SubtotalBox>
         <p className="summary">
           {" "}
-          Subtotal (4 items): <span>{"$3403"}</span>
+          Subtotal ({cart?.length} items):{" "}
+          <span>{"$" + calcTotalCostInCart(cart)}</span>
         </p>
         <VerticalSpacer size="8px" />
         <div className="indicate__gift">

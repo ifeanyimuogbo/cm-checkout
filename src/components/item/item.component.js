@@ -6,23 +6,100 @@ import { Wrapper } from "./item.style";
 import { Button } from "../shared/button/button";
 import { CgTrashEmpty } from "react-icons/cg";
 import { BsPlusLg } from "react-icons/bs";
+import { useContext } from "react";
+import { StoreContext } from "../../pages/cart/cart.page";
+import {
+  addToLocalStorageCart,
+  decrementItemCountInCartInLocalStorage,
+  incrementItemCountInCartInLocalStorage,
+  isInCart,
+  quantityOfItemInCart,
+  removeFromLocalStorageCart,
+  setItemCountInCartInLocalStorage,
+} from "../../utils/cart-utils";
 
 export const Item = ({ item }) => {
+  // N.B: Deletion of list of store items intentionally made temporary (not persisted)
+  const { setCart, setListOfItems } = useContext(StoreContext);
+  const addOrRemoveFromCart = (event) => {
+    if (event.target.checked) {
+      setCart((cart) => [
+        ...cart,
+        { id: item.id, quantity: 1, cost: item.cost },
+      ]);
+      addToLocalStorageCart({ id: item.id, quantity: 1, cost: item.cost });
+    } else {
+      setCart((cart) => {
+        const newCart = cart.filter((cartItem) => cartItem.id !== item.id);
+        return newCart;
+      });
+      removeFromLocalStorageCart(item.id);
+    }
+  };
+  const setQuantityInCart = (event) => {
+    setCart((cart) =>
+      cart?.map((cartItem) =>
+        cartItem?.id === item?.id
+          ? {
+              ...cartItem,
+              quantity: event.target.value,
+            }
+          : cartItem
+      )
+    );
+    setItemCountInCartInLocalStorage(item, event.target.value);
+  };
+  const incrementQuantityInCart = () => {
+    setCart((cart) =>
+      cart?.map((cartItem) =>
+        cartItem?.id === item?.id
+          ? {
+              ...cartItem,
+              quantity: cartItem?.quantity ? cartItem?.quantity + 1 : 1,
+            }
+          : cartItem
+      )
+    );
+    incrementItemCountInCartInLocalStorage(item);
+  };
+  const decrementQuantityInCart = () => {
+    setCart((cart) =>
+      cart?.map((cartItem) =>
+        cartItem?.id === item?.id
+          ? {
+              ...cartItem,
+              quantity: cartItem?.quantity ? cartItem?.quantity - 1 : 1,
+            }
+          : cartItem
+      )
+    );
+    decrementItemCountInCartInLocalStorage(item);
+  };
+  const deleteItemFromStore = () => {
+    setListOfItems((list) =>
+      list.filter((itemInStore) => itemInStore.id !== item.id)
+    );
+    setCart((cart) => {
+      const newCart = cart.filter((cartItem) => cartItem.id !== item.id);
+      return newCart;
+    });
+  };
+
   return (
     <Wrapper>
       <span className="product__check">
-        <Checkbox />
+        <Checkbox onChange={addOrRemoveFromCart} checked={isInCart(item.id)} />
       </span>
       <div className="product__img">
         <img src={item?.img} alt={item?.name} />
         <div className="float_buttons">
           <VerticalSpacer size="10px" />
           <div className="btn__group">
-            <div className="left">
+            <div className="left" onClick={decrementQuantityInCart}>
               <CgTrashEmpty />
             </div>
-            <div className="count">1</div>
-            <div className="right">
+            <div className="count">{quantityOfItemInCart(item.id)}</div>
+            <div className="right" onClick={incrementQuantityInCart}>
               <BsPlusLg />
             </div>
           </div>
@@ -77,11 +154,18 @@ export const Item = ({ item }) => {
         </div>
         <VerticalSpacer size="8px" />
         <div className="info__footer">
-          <select>
-            <option>Qty: 1</option>
+          <select
+            value={quantityOfItemInCart(item.id)}
+            onChange={setQuantityInCart}
+          >
+            <option value={1}>Qty: 1</option>
+            <option value={2}>Qty: 2</option>
+            <option value={3}>Qty: 3</option>
+            <option value={4}>Qty: 4</option>
+            <option value={5}>Qty: 5</option>
           </select>
           <HorizontalSpacer size="10px" />
-          <div className="footer__option">
+          <div className="footer__option" onClick={deleteItemFromStore}>
             <p>Delete</p>
           </div>
           <div className="footer__option">
@@ -91,14 +175,16 @@ export const Item = ({ item }) => {
             <p>See more like this</p>
           </div>
           <div className="footer__options__mobile">
-            <Button kind="secondary">Delete</Button>
+            <Button kind="secondary" onClick={deleteItemFromStore}>
+              Delete
+            </Button>
             <HorizontalSpacer size="10px" />
             <Button kind="secondary">Save for later</Button>
           </div>
         </div>
       </div>
       <div className="product__cost">
-        <p>{item?.cost}</p>
+        <p>{"$" + item?.cost}</p>
       </div>
     </Wrapper>
   );

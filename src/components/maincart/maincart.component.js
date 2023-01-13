@@ -1,38 +1,11 @@
 import { Wrapper } from "./maincart.style";
 import { Item } from "../item";
-import { VerticalSpacer } from "../shared/spacer";
+import { useContext } from "react";
+import { StoreContext } from "../../pages/cart/cart.page";
+import { calcTotalCostInCart } from "../../utils/cart-utils";
 
-const listOfItems = [
-  {
-    name: "Armani Men's Mario Armani Men's Mario Armani Men's Mario Armani Men's Mario Armani Men's Mario Armani Men's Mario Armani Men's Mario Armani Men's Mario",
-    id: 1,
-    img: "https://baajoo.com/wp-content/uploads/2021/12/mts-100d-1avdf-600x600.jpg",
-    in_stock: 3,
-    sold_by: "REMO TECH US",
-    fulfilled_by: "Amazon.ca",
-    ships_from: "Amazon.ca",
-    style: "English - Macbook only",
-    size: "16', 10 core, 16gb, 512 gb",
-    color: "Space Grey",
-    cost: "$300",
-  },
-  {
-    name: "Apple laptop Armani Men's Mario Armani Men's Mario Armani Men's Mario",
-    id: 2,
-    img: "https://baajoo.com/wp-content/uploads/2021/12/mts-100d-1avdf-600x600.jpg",
-    in_stock: 3,
-    sold_by: "REMO TECH US",
-    fulfilled_by: "Amazon.ca",
-    ships_from: "Amazon.ca",
-    style: "English - Macbook only",
-    size: "16', 10 core, 16gb, 512 gb",
-    color: "Space Grey",
-    cost: "$2000",
-    condition: "used, very good",
-  },
-];
-
-export const MainCart = ({}) => {
+export const MainCart = () => {
+  const { listOfItems, cart } = useContext(StoreContext);
   return (
     <Wrapper>
       <div className="header">
@@ -53,7 +26,8 @@ export const MainCart = ({}) => {
       ))}
       <div className="footer">
         <p>
-          Subtotal (4 items): <span>{"$3403"}</span>
+          Subtotal ({cart?.length} items):{" "}
+          <span>{"$" + calcTotalCostInCart(cart)}</span>
         </p>
       </div>
     </Wrapper>
