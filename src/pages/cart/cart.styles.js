@@ -1,4 +1,4 @@
-import {down, up} from 'styled-breakpoints';
+import {between, down, up} from 'styled-breakpoints';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -12,6 +12,9 @@ export const Wrapper = styled.div`
     grid-template-columns: 75% 20%;
     grid-gap: 3%;
   }
+  ${between('sm', 'lg')} {
+    display: block;
+  }
 `;
 export const MainWrapper = styled.div`
   background: #ffffff;
@@ -23,5 +26,8 @@ export const MainWrapper = styled.div`
 export const SideWrapper = styled.div`
   ${down('sm')} {
     order: 1;
+  }
+  ${between('sm', 'lg')} {
+    display: none;
   }
 `;
