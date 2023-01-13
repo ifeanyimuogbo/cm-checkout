@@ -1,8 +1,8 @@
 # Chimoney Shopping Cart
 
-An Ecommerce app demo-ing an Amazon-like cart built with Create React App (Javascript -- propTypes for type safety) using dummy data (images fetched from Chimoney API)
+An Ecommerce app demo-ing an Amazon-like cart built with Create React App (Javascript -- propTypes for type safety) using dummy data (images fetched from Chimoney API to demo API fetching--- because giftcards weren't available)
 
-Live link: https://chimoney-cart-checkout.netlify.app/cart
+Live link: https://chimoney-cart-checkout.netlify.app
 
 ## Technologies
 
