@@ -1,4 +1,5 @@
 import {memo, useContext} from 'react';
+import {ratedItems} from '../../assets/dummyData';
 import {StoreContext} from '../../pages/cart/cart.page';
 import {calcTotalCostInCart} from '../../utils/cart-utils';
 import {RatedItem} from '../rateditem/rateditem.component';
@@ -10,23 +11,6 @@ import {
   SubtotalBox,
   Wrapper,
 } from './cartsidebar.style';
-
-const ratedItems = [
-  {
-    name: 'La Roche-Posay Face, Body Hands, ...',
-    rating: 5,
-    rated: 3000,
-    price: '$16',
-    img: 'https://baajoo.com/wp-content/uploads/2021/12/mts-100d-1avdf-600x600.jpg',
-  },
-  {
-    name: 'La Roche-Posay Face, Body Handstoo, ...',
-    rating: 5,
-    rated: 3000,
-    price: '$16',
-    img: 'https://baajoo.com/wp-content/uploads/2021/12/mts-100d-1avdf-600x600.jpg',
-  },
-];
 
 export const CartSideBar = memo(() => {
   const {cart} = useContext(StoreContext);

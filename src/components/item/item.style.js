@@ -39,15 +39,16 @@ export const Wrapper = styled.div`
         width: fit-content;
         .left {
           border-right: 1px solid #cecede;
-          padding: 8px 16px;
+          padding: 8px 12px;
         }
         .count {
-          padding: 8px 16px;
+          padding: 8px 12px;
           background: #ffffff;
+          color: #248197;
         }
         .right {
           border-left: 1px solid #cecede;
-          padding: 8px 16px;
+          padding: 8px 12px;
         }
       }
     }
