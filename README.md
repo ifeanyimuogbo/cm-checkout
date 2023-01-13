@@ -4,11 +4,11 @@ An Ecommerce app demo-ing an Amazon-like cart built with Create React App (Javas
 
 ## Background
 
-- I IMPLEMENTED THE EXACT SAME AMAZON CART UI SHOWN IN THE FRONTEND ASSESSMENT DOCUMENT TO DEMONSTRATE MY KNACK FOR PIXEL-PERFECT UI IMPLEMENTATIONS EVEN WHEN THE UI IS AN ORDINARY JPG IMAGE AND NOT A PROPER INSPECTABLE FIGMA/SKETCH/... FILE 🚀🚀🚀
-- I AVOIDED USE OF 'CHIMONEY' FOR REPOSITORY NAMING TO AVOID GETTING PLAGIARIZED (Notice 'cm-checkout')
+- I implemented the exact same Amazon-like cart interface snapshot shown in the frontend assessment document to demonstrate excellence with frontend and my knack for impressive implementation despite the limitation a static snapshot UI presents (not an actual inspectable/interactable Figma/Sketch/... UI) 🚀🚀🚀
+- I avoided the use of 'chimoney' in repository naming to avoid getting plagiarized (Notice 'cm-checkout')
 - Live link: https://chimoney-cart-checkout.netlify.app 🚨
-- PS: IF I HAD MORE TIME, I'D HAVE DONE E2E TESTS WITH CYPRESS, USED PROPER SKELETON LOADERS AND EXTENDED THE UI FURTHER TO CAPTURE A FULL AMAZON-LIKE SHOPPING EXPERIENCE.
-- FOR SOME REASON, THE CHIMONEY API WASN'T RETURNING GIFT-CARDS, HENCE, I HAD TO USE DUMMY DATA AND YET DEMONSTRATE MY API FETCHING SKILLS BY FETCHING THE 3 IMAGE FILES IN THE featuredProducts ARRAY OF THE CHIMONEY /assets API.
+- PS: If I had more time, I'd have done proper e2e tests with cypress, used proper skeleton loaders and extended the UI further to capture a full Amazon-like shopping experience.
+- For some reason, the chimoney API wasn't returning giftcards. Hence, I had to use dummy-data but still demonstarted my API fetching skill by fetching the images in the featuredProducts array of the '/info/assets' endpoint.
 
 ## Technologies
 
@@ -16,7 +16,7 @@ An Ecommerce app demo-ing an Amazon-like cart built with Create React App (Javas
 - Create React App
 - Context API
 - Styled Components (I avoided UI libraries as I wanted to demonstrate my dexterity and excellent skill with CSS-in-JS)
-- Axios
+- Axios for API fetching
 
 ## Features
 
