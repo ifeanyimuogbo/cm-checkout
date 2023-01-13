@@ -115,7 +115,7 @@ export const Item = ({ item }) => {
           <VerticalSpacer size="10px" />
           <div className="btn__group">
             <div className="left" onClick={decrementQuantityInCart}>
-              <CgTrashEmpty />
+              <CgTrashEmpty onClick={deleteItemFromStore} />
             </div>
             <div className="count">{quantityOfItemInCart(item.id)}</div>
             <div className="right" onClick={incrementQuantityInCart}>
