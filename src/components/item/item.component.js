@@ -50,29 +50,48 @@ export const Item = ({ item }) => {
     setItemCountInCartInLocalStorage(item, event.target.value);
   };
   const incrementQuantityInCart = () => {
-    setCart((cart) =>
-      cart?.map((cartItem) =>
-        cartItem?.id === item?.id
-          ? {
-              ...cartItem,
-              quantity: cartItem?.quantity ? cartItem?.quantity + 1 : 1,
-            }
-          : cartItem
-      )
-    );
-    incrementItemCountInCartInLocalStorage(item);
+    setCart((cart) => {
+      console.log(cart);
+      if (cart.findIndex((cartItem) => cartItem.id === item.id) !== -1) {
+        return cart.map((sel) =>
+          sel.id === item.id
+            ? {
+                ...sel,
+                quantity: sel.quantity + 1,
+              }
+            : sel
+        );
+      } else
+        return [
+          ...cart,
+          {
+            id: item.id,
+            cost: item.cost,
+            quantity: 1,
+          },
+        ];
+    });
+
+    incrementItemCountInCartInLocalStorage({
+      id: item.id,
+      cost: item.cost,
+      quantity: 1,
+    });
   };
   const decrementQuantityInCart = () => {
-    setCart((cart) =>
-      cart?.map((cartItem) =>
-        cartItem?.id === item?.id
-          ? {
-              ...cartItem,
-              quantity: cartItem?.quantity ? cartItem?.quantity - 1 : 1,
-            }
-          : cartItem
-      )
-    );
+    setCart((cart) => {
+      if (cart.findIndex((cartItem) => cartItem.id === item.id) !== -1) {
+        return cart?.map((cartItem) =>
+          cartItem?.id === item?.id
+            ? {
+                id: cartItem.id,
+                cost: cartItem.cost,
+                quantity: cartItem?.quantity - 1,
+              }
+            : cartItem
+        );
+      } else return cart;
+    });
     decrementItemCountInCartInLocalStorage(item);
   };
   const deleteItemFromStore = () => {

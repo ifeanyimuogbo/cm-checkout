@@ -41,15 +41,12 @@ export const incrementItemCountInCartInLocalStorage = (item) => {
   const newCart =
     indexOfItemInCart === -1
       ? [...cart, item]
-      : cart?.map((cartItem) =>
-          cartItem?.id === item?.id
-            ? {
-                ...cartItem,
-                quantity: cartItem?.quantity + 1,
-              }
-            : cartItem
-        );
+      : cart?.map((cartItem) => ({
+          ...cartItem,
+          quantity: cartItem?.quantity + 1,
+        }));
   localStorage.setItem("cart", JSON.stringify(newCart));
+  console.log(cart);
 };
 
 export const decrementItemCountInCartInLocalStorage = (item) => {
