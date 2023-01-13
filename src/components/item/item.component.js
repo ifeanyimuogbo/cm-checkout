@@ -37,21 +37,37 @@ export const Item = ({ item }) => {
     }
   };
   const setQuantityInCart = (event) => {
-    setCart((cart) =>
-      cart?.map((cartItem) =>
-        cartItem?.id === item?.id
-          ? {
-              ...cartItem,
-              quantity: event.target.value,
-            }
-          : cartItem
-      )
+    setCart((cart) => {
+      if (cart.findIndex((cartItem) => cartItem.id === item.id) !== -1) {
+        return cart?.map((cartItem) =>
+          cartItem?.id === item?.id
+            ? {
+                ...cartItem,
+                quantity: event.target.value,
+              }
+            : cartItem
+        );
+      } else
+        return [
+          ...cart,
+          {
+            id: item.id,
+            cost: item.cost,
+            quantity: event.target.value,
+          },
+        ];
+    });
+    setItemCountInCartInLocalStorage(
+      {
+        id: item.id,
+        cost: item.cost,
+        quantity: event.target.value,
+      },
+      event.target.value
     );
-    setItemCountInCartInLocalStorage(item, event.target.value);
   };
   const incrementQuantityInCart = () => {
     setCart((cart) => {
-      console.log(cart);
       if (cart.findIndex((cartItem) => cartItem.id === item.id) !== -1) {
         return cart.map((sel) =>
           sel.id === item.id
