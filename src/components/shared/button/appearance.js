@@ -1,6 +1,6 @@
-import { css } from "styled-components";
-import { switchProp } from "styled-tools";
-import { getColorFromTheme } from "../../../utils/style-utils";
+import {css} from 'styled-components';
+import {switchProp} from 'styled-tools';
+import {getColorFromTheme} from '../../../utils/style-utils';
 
 export const disabled = css`
   &:disabled {
@@ -11,42 +11,42 @@ export const disabled = css`
 
 const primaryStyle = css`
   color: #100e13;
-  background-color: ${getColorFromTheme("yellow100")};
+  background-color: ${getColorFromTheme('yellow100')};
 
   &:not(:disabled):hover {
-    background-color: ${getColorFromTheme("yellow100")};
+    background-color: ${getColorFromTheme('yellow100')};
   }
 
   &:not(:disabled):focus {
-    border-color: ${getColorFromTheme("yellow100")};
-    box-shadow: ${getColorFromTheme("yellow100")} 0 0 0 4px;
+    border-color: ${getColorFromTheme('yellow100')};
+    box-shadow: ${getColorFromTheme('yellow100')} 0 0 0 4px;
   }
 
   &:disabled {
-    background-color: ${getColorFromTheme("backgroundLight")};
-    color: ${getColorFromTheme("textBody")};
+    background-color: ${getColorFromTheme('backgroundLight')};
+    color: ${getColorFromTheme('textBody')};
   }
 
   ${disabled};
 `;
 
 const secondaryStyle = css`
-  color: ${getColorFromTheme("textDark")};
-  background-color: ${getColorFromTheme("white")};
-  border-color: ${getColorFromTheme("borderDark")};
+  color: ${getColorFromTheme('textDark')};
+  background-color: ${getColorFromTheme('white')};
+  border-color: ${getColorFromTheme('borderDark')};
 
   &:not(:disabled):hover {
-    border-color: ${getColorFromTheme("yellow100")};
-    color: ${getColorFromTheme("yellow100")};
+    border-color: ${getColorFromTheme('yellow100')};
+    color: ${getColorFromTheme('yellow100')};
   }
 
   &:not(:disabled):focus {
-    border-color: ${getColorFromTheme("borderDark")};
-    box-shadow: ${getColorFromTheme("yellow100")} 0 0 0 4px;
+    border-color: ${getColorFromTheme('borderDark')};
+    box-shadow: ${getColorFromTheme('yellow100')} 0 0 0 4px;
   }
 
   &:disabled {
-    color: ${getColorFromTheme("textMuted")};
+    color: ${getColorFromTheme('textMuted')};
   }
 
   ${disabled};
@@ -54,12 +54,12 @@ const secondaryStyle = css`
 
 const smallStyle = css`
   padding: none;
-  color: ${getColorFromTheme("yellow100")};
+  color: ${getColorFromTheme('yellow100')};
   background: none !important;
   border: none !important;
 
   &:not(:disabled):hover {
-    color: ${getColorFromTheme("yellow100")};
+    color: ${getColorFromTheme('yellow100')};
     text-decoration: underline;
   }
 
@@ -68,12 +68,12 @@ const smallStyle = css`
 
 const smallBlackStyle = css`
   padding: none;
-  color: ${getColorFromTheme("textBody")};
+  color: ${getColorFromTheme('textBody')};
   background: none !important;
   border: none !important;
 
   &:not(:disabled):hover {
-    color: ${getColorFromTheme("textDark")};
+    color: ${getColorFromTheme('textDark')};
     text-decoration: underline;
   }
 
@@ -82,14 +82,14 @@ const smallBlackStyle = css`
 
 export const appearance = css`
   ${switchProp(
-    "kind",
+    'kind',
     {
       primary: primaryStyle,
       secondary: secondaryStyle,
       small: smallStyle,
-      "small-black": smallBlackStyle,
+      'small-black': smallBlackStyle,
     },
-    primaryStyle
+    primaryStyle,
   )}
 `;
 

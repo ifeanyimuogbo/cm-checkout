@@ -1,1 +1,1 @@
-export { MainCart } from "./maincart.component";
+export {MainCart} from './maincart.component';

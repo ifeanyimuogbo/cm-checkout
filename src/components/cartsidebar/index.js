@@ -1,1 +1,1 @@
-export { CartSideBar } from "./cartsidebar.component";
+export {CartSideBar} from './cartsidebar.component';

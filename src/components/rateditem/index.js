@@ -1,1 +1,1 @@
-export { RatedItem } from "./rateditem.component";
+export {RatedItem} from './rateditem.component';

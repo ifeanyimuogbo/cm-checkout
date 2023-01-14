@@ -1,9 +1,9 @@
-import { down } from "styled-breakpoints";
-import styled from "styled-components";
+import {down} from 'styled-breakpoints';
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   .header {
-    ${down("sm")} {
+    ${down('sm')} {
       display: none;
     }
     h1.header__title {
@@ -23,7 +23,7 @@ export const Wrapper = styled.div`
     border-bottom: 1px solid #eceded;
   }
   .secondary__header {
-    ${down("sm")} {
+    ${down('sm')} {
       display: none;
     }
     p.saved__prompt {

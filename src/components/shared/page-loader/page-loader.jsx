@@ -1,5 +1,5 @@
-import styled, { keyframes } from "styled-components";
-import { getColorFromTheme } from "../../../utils/style-utils";
+import styled, {keyframes} from 'styled-components';
+import {getColorFromTheme} from '../../../utils/style-utils';
 
 const long = keyframes`
   0% {left: -35%;right: 100%}
@@ -30,7 +30,7 @@ const LoaderWrapper = styled.div`
   width: 100px;
   height: 4px;
   overflow: hidden;
-  background-color: ${getColorFromTheme("blue100")};
+  background-color: ${getColorFromTheme('blue100')};
   background-clip: padding-box;
 `;
 
@@ -38,7 +38,7 @@ const LoaderBottom = styled.div`
   position: absolute;
   height: 4px;
   overflow: hidden;
-  background-color: ${getColorFromTheme("yellow100")};
+  background-color: ${getColorFromTheme('yellow100')};
   background-clip: padding-box;
   display: block;
   border-radius: 2px;
@@ -51,7 +51,7 @@ const LoaderTop = styled.div`
   position: absolute;
   height: 4px;
   overflow: hidden;
-  background-color: ${getColorFromTheme("yellow100")};
+  background-color: ${getColorFromTheme('yellow100')};
   background-clip: padding-box;
   display: block;
   border-radius: 2px;

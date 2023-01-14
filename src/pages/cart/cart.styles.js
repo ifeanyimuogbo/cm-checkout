@@ -1,11 +1,11 @@
-import { down, up } from "styled-breakpoints";
-import styled from "styled-components";
+import {down, up} from 'styled-breakpoints';
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin: auto;
-  ${up("sm")} {
+  ${up('sm')} {
     padding: 10px 40px 40px 40px;
     background: #eceded;
     display: grid;
@@ -16,12 +16,12 @@ export const Wrapper = styled.div`
 export const MainWrapper = styled.div`
   background: #ffffff;
   padding: 20px 10px 10px 10px;
-  ${down("sm")} {
+  ${down('sm')} {
     order: 2;
   }
 `;
 export const SideWrapper = styled.div`
-  ${down("sm")} {
+  ${down('sm')} {
     order: 1;
   }
 `;

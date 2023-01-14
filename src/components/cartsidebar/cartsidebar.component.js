@@ -1,42 +1,42 @@
-import { useContext } from "react";
-import { StoreContext } from "../../pages/cart/cart.page";
-import { calcTotalCostInCart } from "../../utils/cart-utils";
-import { RatedItem } from "../rateditem/rateditem.component";
-import { Button } from "../shared/button/button";
-import { Checkbox } from "../shared/checkbox/checkbox";
-import { HorizontalSpacer, VerticalSpacer } from "../shared/spacer";
+import {memo, useContext} from 'react';
+import {StoreContext} from '../../pages/cart/cart.page';
+import {calcTotalCostInCart} from '../../utils/cart-utils';
+import {RatedItem} from '../rateditem/rateditem.component';
+import {Button} from '../shared/button/button';
+import {Checkbox} from '../shared/checkbox/checkbox';
+import {HorizontalSpacer, VerticalSpacer} from '../shared/spacer';
 import {
   HighlyRatedProductsBox,
   SubtotalBox,
   Wrapper,
-} from "./cartsidebar.style";
+} from './cartsidebar.style';
 
 const ratedItems = [
   {
-    name: "La Roche-Posay Face, Body Hands, ...",
+    name: 'La Roche-Posay Face, Body Hands, ...',
     rating: 5,
     rated: 3000,
-    price: "$16",
-    img: "https://baajoo.com/wp-content/uploads/2021/12/mts-100d-1avdf-600x600.jpg",
+    price: '$16',
+    img: 'https://baajoo.com/wp-content/uploads/2021/12/mts-100d-1avdf-600x600.jpg',
   },
   {
-    name: "La Roche-Posay Face, Body Hands, ...",
+    name: 'La Roche-Posay Face, Body Handstoo, ...',
     rating: 5,
     rated: 3000,
-    price: "$16",
-    img: "https://baajoo.com/wp-content/uploads/2021/12/mts-100d-1avdf-600x600.jpg",
+    price: '$16',
+    img: 'https://baajoo.com/wp-content/uploads/2021/12/mts-100d-1avdf-600x600.jpg',
   },
 ];
 
-export const CartSideBar = () => {
-  const { cart } = useContext(StoreContext);
+export const CartSideBar = memo(() => {
+  const {cart} = useContext(StoreContext);
   return (
     <Wrapper>
       <SubtotalBox>
         <p className="summary">
-          {" "}
-          Subtotal ({cart?.length} items):{" "}
-          <span>{"$" + calcTotalCostInCart(cart)}</span>
+          {' '}
+          Subtotal ({cart?.length} items):{' '}
+          <span>{'$' + calcTotalCostInCart(cart)}</span>
         </p>
         <VerticalSpacer size="8px" />
         <div className="indicate__gift">
@@ -62,6 +62,7 @@ export const CartSideBar = () => {
       </HighlyRatedProductsBox>
     </Wrapper>
   );
-};
+});
 
 CartSideBar.propTypes = {};
+CartSideBar.displayName = 'Cart Sidebar';

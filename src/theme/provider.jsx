@@ -1,10 +1,10 @@
-import * as React from "react";
-import { ThemeProvider } from "styled-components";
-import { GlobalStyle } from "./global";
-import { theme } from "./theme";
-import PropTypes from "prop-types";
+import * as React from 'react';
+import {ThemeProvider} from 'styled-components';
+import {GlobalStyle} from './global';
+import {theme} from './theme';
+import PropTypes from 'prop-types';
 
-export const StyleProvider = ({ children }) => (
+export const StyleProvider = ({children}) => (
   <ThemeProvider theme={theme}>
     <GlobalStyle />
     {children}

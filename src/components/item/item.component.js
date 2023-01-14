@@ -1,13 +1,13 @@
-import { Checkbox } from "../shared/checkbox/checkbox";
-import { HorizontalSpacer, VerticalSpacer } from "../shared/spacer";
-import primeIcon from "../../assets/icons/amazon_prime.png";
-import PropTypes from "prop-types";
-import { Wrapper } from "./item.style";
-import { Button } from "../shared/button/button";
-import { CgTrashEmpty } from "react-icons/cg";
-import { BsPlusLg } from "react-icons/bs";
-import { useContext } from "react";
-import { StoreContext } from "../../pages/cart/cart.page";
+import {Checkbox} from '../shared/checkbox/checkbox';
+import {HorizontalSpacer, VerticalSpacer} from '../shared/spacer';
+import primeIcon from '../../assets/icons/amazon_prime.png';
+import PropTypes from 'prop-types';
+import {Wrapper} from './item.style';
+import {Button} from '../shared/button/button';
+import {CgTrashEmpty} from 'react-icons/cg';
+import {BsPlusLg} from 'react-icons/bs';
+import {memo, useContext} from 'react';
+import {StoreContext} from '../../pages/cart/cart.page';
 import {
   addToLocalStorageCart,
   decrementItemCountInCartInLocalStorage,
@@ -16,18 +16,15 @@ import {
   quantityOfItemInCart,
   removeFromLocalStorageCart,
   setItemCountInCartInLocalStorage,
-} from "../../utils/cart-utils";
+} from '../../utils/cart-utils';
 
-export const Item = ({ item }) => {
+export const Item = memo(({item}) => {
   // N.B: Deletion of list of store items intentionally made temporary (not persisted)
-  const { setCart, setListOfItems } = useContext(StoreContext);
+  const {setCart, setListOfItems} = useContext(StoreContext);
   const addOrRemoveFromCart = (event) => {
     if (event.target.checked) {
-      setCart((cart) => [
-        ...cart,
-        { id: item.id, quantity: 1, cost: item.cost },
-      ]);
-      addToLocalStorageCart({ id: item.id, quantity: 1, cost: item.cost });
+      setCart((cart) => [...cart, {id: item.id, quantity: 1, cost: item.cost}]);
+      addToLocalStorageCart({id: item.id, quantity: 1, cost: item.cost});
     } else {
       setCart((cart) => {
         const newCart = cart.filter((cartItem) => cartItem.id !== item.id);
@@ -45,7 +42,7 @@ export const Item = ({ item }) => {
                 ...cartItem,
                 quantity: event.target.value,
               }
-            : cartItem
+            : cartItem,
         );
       } else
         return [
@@ -63,7 +60,7 @@ export const Item = ({ item }) => {
         cost: item.cost,
         quantity: event.target.value,
       },
-      event.target.value
+      event.target.value,
     );
   };
   const incrementQuantityInCart = () => {
@@ -75,7 +72,7 @@ export const Item = ({ item }) => {
                 ...sel,
                 quantity: sel.quantity + 1,
               }
-            : sel
+            : sel,
         );
       } else
         return [
@@ -104,7 +101,7 @@ export const Item = ({ item }) => {
                 cost: cartItem.cost,
                 quantity: cartItem?.quantity - 1,
               }
-            : cartItem
+            : cartItem,
         );
       } else return cart;
     });
@@ -112,7 +109,7 @@ export const Item = ({ item }) => {
   };
   const deleteItemFromStore = () => {
     setListOfItems((list) =>
-      list.filter((itemInStore) => itemInStore.id !== item.id)
+      list.filter((itemInStore) => itemInStore.id !== item.id),
     );
     setCart((cart) => {
       const newCart = cart.filter((cartItem) => cartItem.id !== item.id);
@@ -219,12 +216,13 @@ export const Item = ({ item }) => {
         </div>
       </div>
       <div className="product__cost">
-        <p>{"$" + item?.cost}</p>
+        <p>{'$' + item?.cost}</p>
       </div>
     </Wrapper>
   );
-};
+});
 
 Item.propTypes = {
   item: PropTypes.any,
 };
+Item.displayName = 'Item';

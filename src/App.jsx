@@ -1,14 +1,14 @@
-import "./App.css";
-import { BrowserRouter } from "react-router-dom";
-import { Routes, Route } from "react-router";
-import { lazy, Suspense } from "react";
-import { StyleProvider } from "./theme";
-import { PageLoader } from "./components/shared/page-loader/page-loader";
+import './App.css';
+import {BrowserRouter} from 'react-router-dom';
+import {Routes, Route} from 'react-router';
+import {lazy, Suspense} from 'react';
+import {StyleProvider} from './theme';
+import {PageLoader} from './components/shared/page-loader/page-loader';
 
 const LazyloadedShoppingCart = lazy(() =>
-  import("../src/pages/cart").then((module) => ({
+  import('./pages/cart').then((module) => ({
     default: module.ShoppingCart,
-  }))
+  })),
 );
 
 function App() {
@@ -18,6 +18,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/cart" element={<LazyloadedShoppingCart />} />
+            <Route path="/" element={<LazyloadedShoppingCart />} />
           </Routes>
         </BrowserRouter>
       </Suspense>

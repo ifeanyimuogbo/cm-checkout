@@ -1,11 +1,11 @@
-import styled from "styled-components";
-import { ifProp } from "styled-tools";
-import styledMap from "styled-map";
-import { appearance, textStyle } from "./appearance";
-import { loadingStyle } from "./loading";
-import { width } from "./width";
-import { Link } from "react-router-dom";
-import { getColorFromTheme } from "../../../utils/style-utils";
+import styled from 'styled-components';
+import {ifProp} from 'styled-tools';
+import styledMap from 'styled-map';
+import {appearance, textStyle} from './appearance';
+import {loadingStyle} from './loading';
+import {width} from './width';
+import {Link} from 'react-router-dom';
+import {getColorFromTheme} from '../../../utils/style-utils';
 
 export const cursorValue = styledMap`
   disabled: initial;
@@ -33,14 +33,14 @@ export const Button = styled.button`
   ${appearance};
   ${width};
   ${textStyle};
-  ${ifProp("isLoading", loadingStyle)}
+  ${ifProp('isLoading', loadingStyle)}
   overflow-x: hidden;
   &:disabled {
-    color: ${({ isLoading }) =>
-      isLoading ? getColorFromTheme("black") : undefined};
+    color: ${({isLoading}) =>
+      isLoading ? getColorFromTheme('black') : undefined};
   }
-    background-color: ${({ isLoading }) =>
-      isLoading ? getColorFromTheme("yellow100") : undefined};
+    background-color: ${({isLoading}) =>
+      isLoading ? getColorFromTheme('yellow100') : undefined};
   }
 
   }
@@ -62,7 +62,7 @@ export const LinkButton = styled(Link)`
   ${appearance};
   ${width};
   ${textStyle};
-  ${ifProp("isLoading", loadingStyle)}
+  ${ifProp('isLoading', loadingStyle)}
   overflow-x: hidden;
 `;
 
@@ -85,6 +85,6 @@ export const DisplayNameButton = styled.button`
   font-weight: 500;
   font-style: medium;
   ${width};
-  ${ifProp("isLoading", loadingStyle)}
+  ${ifProp('isLoading', loadingStyle)}
   overflow-x: hidden;
 `;

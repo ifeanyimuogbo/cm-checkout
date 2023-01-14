@@ -1,8 +1,8 @@
-import { up } from "styled-breakpoints";
-import { createGlobalStyle } from "styled-components";
-import { normalize } from "styled-normalize";
-import { getColorFromTheme } from "../utils/style-utils";
-import { reset } from "./reset";
+import {up} from 'styled-breakpoints';
+import {createGlobalStyle} from 'styled-components';
+import {normalize} from 'styled-normalize';
+import {getColorFromTheme} from '../utils/style-utils';
+import {reset} from './reset';
 
 export const GlobalStyle = createGlobalStyle`
   ${normalize}
@@ -16,7 +16,7 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     text-rendering: geometricPrecision;
     height: 100%;
-    ${up("sm")} {
+    ${up('sm')} {
       background: #eceded;
     }
   }
@@ -37,6 +37,6 @@ export const GlobalStyle = createGlobalStyle`
 
   a.focus-visible {
     outline: none;
-    box-shadow: 0 0 0 3px ${getColorFromTheme("yellow100")};
+    box-shadow: 0 0 0 3px ${getColorFromTheme('yellow100')};
   }
 `;

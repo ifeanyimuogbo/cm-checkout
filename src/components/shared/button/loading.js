@@ -1,6 +1,6 @@
-import { css, keyframes } from "styled-components";
-import { switchProp } from "styled-tools";
-import { getColorFromTheme } from "../../../utils/style-utils";
+import {css, keyframes} from 'styled-components';
+import {switchProp} from 'styled-tools';
+import {getColorFromTheme} from '../../../utils/style-utils';
 
 const loadingAnimation = keyframes`
   0% {
@@ -40,7 +40,7 @@ const baseLoadingStyle = css`
   &::after {
     display: block;
     position: absolute;
-    content: "";
+    content: '';
     width: 0%;
     top: 0;
     height: 100%;
@@ -52,23 +52,23 @@ const baseLoadingStyle = css`
 
 const primaryLoadingStyle = css`
   &:not(:disabled):hover {
-    color: ${getColorFromTheme("white")};
-    background-color: ${getColorFromTheme("yellow100")};
+    color: ${getColorFromTheme('white')};
+    background-color: ${getColorFromTheme('yellow100')};
   }
 
   &::after {
-    background-color: ${getColorFromTheme("warmBlue")};
+    background-color: ${getColorFromTheme('warmBlue')};
   }
 `;
 
 const secondaryLoadingStyle = css`
   &:not(:disabled):hover {
-    background-color: ${getColorFromTheme("white")};
-    color: ${getColorFromTheme("yellow100")};
+    background-color: ${getColorFromTheme('white')};
+    color: ${getColorFromTheme('yellow100')};
   }
 
   &::after {
-    background-color: ${getColorFromTheme("yellow100")};
+    background-color: ${getColorFromTheme('yellow100')};
   }
 `;
 
@@ -76,11 +76,11 @@ export const loadingStyle = css`
   ${baseLoadingStyle};
 
   ${switchProp(
-    "kind",
+    'kind',
     {
       primary: primaryLoadingStyle,
       secondary: secondaryLoadingStyle,
     },
-    primaryLoadingStyle
+    primaryLoadingStyle,
   )}
 `;

@@ -1,12 +1,12 @@
-import { down } from "styled-breakpoints";
-import styled from "styled-components";
+import {down} from 'styled-breakpoints';
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 2% 10% 80% 4%;
 
   grid-gap: 1%;
-  ${down("sm")} {
+  ${down('sm')} {
     background: #eceded;
     margin-bottom: 10px;
     grid-template-columns: 35% 62%;
@@ -14,12 +14,12 @@ export const Wrapper = styled.div`
     align-items: end;
   }
   .product__check {
-    ${down("sm")} {
+    ${down('sm')} {
       display: none;
     }
   }
   .product__img {
-    ${down("sm")} {
+    ${down('sm')} {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -29,7 +29,7 @@ export const Wrapper = styled.div`
     }
     .float_buttons {
       display: none;
-      ${down("sm")} {
+      ${down('sm')} {
         display: block;
       }
       .btn__group {
@@ -53,7 +53,7 @@ export const Wrapper = styled.div`
     }
   }
   .product__cost {
-    ${down("sm")} {
+    ${down('sm')} {
       display: none;
     }
     align-self: start;
@@ -66,7 +66,7 @@ export const Wrapper = styled.div`
   .product__info {
     .mobile-price-div {
       display: none;
-      ${down("sm")} {
+      ${down('sm')} {
         display: flex;
         align-items: center;
         p {
@@ -81,7 +81,7 @@ export const Wrapper = styled.div`
     h4 {
       font-weight: 500;
       margin-bottom: 10px;
-      ${down("sm")} {
+      ${down('sm')} {
         font-size: 18px;
         font-weight: 400;
       }
@@ -102,7 +102,7 @@ export const Wrapper = styled.div`
     }
     img {
       max-width: 50px;
-      ${down("sm")} {
+      ${down('sm')} {
         display: none;
       }
     }
@@ -111,7 +111,7 @@ export const Wrapper = styled.div`
       a {
         color: #4990a0;
       }
-      ${down("sm")} {
+      ${down('sm')} {
         display: none;
       }
     }
@@ -121,7 +121,7 @@ export const Wrapper = styled.div`
         border-radius: 8px;
         background: #eceded;
         cursor: pointer;
-        ${down("sm")} {
+        ${down('sm')} {
           display: none;
         }
       }
@@ -130,13 +130,13 @@ export const Wrapper = styled.div`
         border-left: 1px solid #eceded;
         color: #4990a0;
         cursor: pointer;
-        ${down("sm")} {
+        ${down('sm')} {
           display: none;
         }
       }
       div.footer__options__mobile {
         display: none;
-        ${down("sm")} {
+        ${down('sm')} {
           display: flex;
           button {
             padding: 8px 12px;

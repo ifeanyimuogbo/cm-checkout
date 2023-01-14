@@ -1,11 +1,12 @@
-import { Wrapper } from "./rateditem.style";
-import PropTypes from "prop-types";
-import { Button } from "../shared/button/button";
-import primeIcon from "../../assets/icons/amazon_prime.png";
-import { HorizontalSpacer, VerticalSpacer } from "../shared/spacer";
-import ReactStars from "react-rating-stars-component";
+import {Wrapper} from './rateditem.style';
+import PropTypes from 'prop-types';
+import {Button} from '../shared/button/button';
+import primeIcon from '../../assets/icons/amazon_prime.png';
+import {HorizontalSpacer, VerticalSpacer} from '../shared/spacer';
+import ReactStars from 'react-rating-stars-component';
+import {memo} from 'react';
 
-export const RatedItem = ({ item }) => {
+export const RatedItem = memo(({item}) => {
   const ratingChanged = (newRating) => {
     console.log(newRating);
   };
@@ -39,8 +40,9 @@ export const RatedItem = ({ item }) => {
       </div>
     </Wrapper>
   );
-};
+});
 
 RatedItem.propTypes = {
   item: PropTypes.any,
 };
+RatedItem.displayName = 'RatedItem';

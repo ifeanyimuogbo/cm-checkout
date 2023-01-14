@@ -1,5 +1,5 @@
-import { css } from "styled-components";
-import { switchProp } from "styled-tools";
+import {css} from 'styled-components';
+import {switchProp} from 'styled-tools';
 
 const fullWidthStyle = css`
   width: 100%;
@@ -20,13 +20,13 @@ const xmStyle = css`
 
 export const width = css`
   ${switchProp(
-    "width",
+    'width',
     {
       xm: xmStyle,
       sm: smStyle,
       md: mdStyle,
       full: fullWidthStyle,
     },
-    mdStyle
+    mdStyle,
   )}
 `;

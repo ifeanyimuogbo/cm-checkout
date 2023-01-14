@@ -1,11 +1,11 @@
-import { Wrapper } from "./maincart.style";
-import { Item } from "../item";
-import { useContext } from "react";
-import { StoreContext } from "../../pages/cart/cart.page";
-import { calcTotalCostInCart } from "../../utils/cart-utils";
+import {Wrapper} from './maincart.style';
+import {Item} from '../item';
+import {memo, useContext} from 'react';
+import {StoreContext} from '../../pages/cart/cart.page';
+import {calcTotalCostInCart} from '../../utils/cart-utils';
 
-export const MainCart = () => {
-  const { listOfItems, cart } = useContext(StoreContext);
+export const MainCart = memo(() => {
+  const {listOfItems, cart} = useContext(StoreContext);
   return (
     <Wrapper>
       <div className="header">
@@ -17,7 +17,7 @@ export const MainCart = () => {
         <p className="saved__prompt">
           <span>
             Schwinn Discover Hybrid Bicycle, 700C, 28-inch Wheels, Black(S5...
-          </span>{" "}
+          </span>{' '}
           has been moved to Save for Later
         </p>
       </div>
@@ -26,11 +26,12 @@ export const MainCart = () => {
       ))}
       <div className="footer">
         <p>
-          Subtotal ({cart?.length} items):{" "}
-          <span>{"$" + calcTotalCostInCart(cart)}</span>
+          Subtotal ({cart?.length} items):{' '}
+          <span>{'$' + calcTotalCostInCart(cart)}</span>
         </p>
       </div>
     </Wrapper>
   );
-};
+});
 MainCart.propTypes = {};
+MainCart.displayName = 'MainCart';
