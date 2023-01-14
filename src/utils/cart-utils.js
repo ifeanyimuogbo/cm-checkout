@@ -96,11 +96,9 @@ export const deleteItemFromStore = (id) => {
 };
 
 export const calcTotalCostInCart = (cart) => {
-  return cart.length === 0
-    ? 0
-    : cart.length === 1
-    ? cart[0].cost * cart[0].quantity
-    : cart.reduce((a, b) => a.cost * a.quantity + b.cost * b.quantity);
+  return cart
+    .map((item) => item.cost * item.quantity)
+    .reduce((a, b) => a + b, 0);
 };
 export const isInCart = (id) => {
   const cart = localStorage?.cart ? JSON.parse(localStorage?.cart) : [];
